@@ -105,6 +105,13 @@
   -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
 }
 
+.text-3d-cinematic {
+  text-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.18),
+    0 6px 16px hsl(var(--background) / 0.8),
+    0 16px 44px hsl(var(--primary) / 0.28);
+}
+
 /* Glassmorphism */
 .glass {
   background: hsla(var(--glass-bg));
