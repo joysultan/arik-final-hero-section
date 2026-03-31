@@ -4,18 +4,12 @@ import { Play, ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
   const [showIntro, setShowIntro] = useState(false);
+  const introLetters = "FRAMECUT".split("");
 
   useEffect(() => {
-    const introKey = "framecut_intro_seen_v1";
-    const introSeen = window.localStorage.getItem(introKey);
-
-    if (!introSeen) {
-      setShowIntro(true);
-      window.localStorage.setItem(introKey, "true");
-
-      const timer = window.setTimeout(() => setShowIntro(false), 2300);
-      return () => window.clearTimeout(timer);
-    }
+    setShowIntro(true);
+    const timer = window.setTimeout(() => setShowIntro(false), 2800);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const scrollToProjects = () => {
@@ -32,16 +26,55 @@ const HeroSection = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
           >
-            <motion.h2
-              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-gradient text-3d-cinematic px-6 text-center"
-              initial={{ opacity: 0, rotateX: -70, y: 80, scale: 0.9 }}
-              animate={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
-              exit={{ opacity: 0, rotateX: 28, y: -60, scale: 1.08 }}
-              transition={{ duration: 1.25, ease: [0.2, 0.8, 0.2, 1] }}
-              style={{ transformPerspective: 1200 }}
-            >
-              FRAMECUT
-            </motion.h2>
+            <div className="px-6 text-center">
+              <motion.h2
+                className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-gradient text-3d-cinematic"
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: { staggerChildren: 0.07, delayChildren: 0.1 },
+                  },
+                  exit: {
+                    opacity: 0,
+                    y: -46,
+                    transition: { duration: 0.45, ease: "easeInOut" },
+                  },
+                }}
+                style={{ transformPerspective: 1200 }}
+              >
+                {introLetters.map((letter, index) => (
+                  <motion.span
+                    key={`${letter}-${index}`}
+                    className="inline-block"
+                    variants={{
+                      hidden: { opacity: 0, y: 70, rotateX: -85, filter: "blur(6px)" },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        rotateX: 0,
+                        filter: "blur(0px)",
+                        transition: { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] },
+                      },
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.h2>
+
+              <motion.p
+                className="mt-4 font-body text-xs md:text-sm tracking-[0.45em] uppercase text-foreground/80"
+                initial={{ opacity: 0, y: 16, letterSpacing: "0.8em" }}
+                animate={{ opacity: 1, y: 0, letterSpacing: "0.45em" }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+              >
+                Cinematic Motion Design
+              </motion.p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
