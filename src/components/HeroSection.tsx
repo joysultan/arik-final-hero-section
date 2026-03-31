@@ -8,7 +8,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     setShowIntro(true);
-    const timer = window.setTimeout(() => setShowIntro(false), 2100);
+    const timer = window.setTimeout(() => setShowIntro(false), 1500);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -35,12 +35,12 @@ const HeroSection = () => {
                 variants={{
                   hidden: {},
                   visible: {
-                    transition: { staggerChildren: 0.05, delayChildren: 0.06 },
+                    transition: { staggerChildren: 0.035, delayChildren: 0.04 },
                   },
                   exit: {
                     opacity: 0,
                     y: -46,
-                    transition: { duration: 0.45, ease: "easeInOut" },
+                    transition: { duration: 0.3, ease: "easeInOut" },
                   },
                 }}
                 style={{ transformPerspective: 1200 }}
@@ -56,7 +56,7 @@ const HeroSection = () => {
                         y: 0,
                         rotateX: 0,
                         filter: "blur(0px)",
-                        transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] },
+                        transition: { duration: 0.5, ease: [0.2, 0.8, 0.2, 1] },
                       },
                     }}
                   >
@@ -70,7 +70,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 16, letterSpacing: "0.8em" }}
                 animate={{ opacity: 1, y: 0, letterSpacing: "0.45em" }}
                 exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.55, delay: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.35, delay: 0.3, ease: "easeOut" }}
               >
                 Cinematic Motion Design
               </motion.p>
