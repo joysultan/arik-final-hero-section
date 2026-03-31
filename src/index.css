@@ -15,7 +15,7 @@
     --popover: 240 8% 8%;
     --popover-foreground: 40 20% 92%;
 
-    --primary: 38 92% 55%;
+    --primary: 272 88% 66%;
     --primary-foreground: 240 10% 4%;
 
     --secondary: 240 6% 14%;
@@ -32,17 +32,17 @@
 
     --border: 240 6% 18%;
     --input: 240 6% 18%;
-    --ring: 38 92% 55%;
+    --ring: 272 88% 66%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
     --glass-bg: 240 8% 10% / 0.6;
     --glass-border: 240 6% 25% / 0.4;
-    --glow-primary: 38 92% 55% / 0.15;
-    --gradient-start: 280 80% 50%;
-    --gradient-mid: 38 92% 55%;
-    --gradient-end: 190 90% 50%;
+    --glow-primary: 272 88% 66% / 0.2;
+    --gradient-start: 280 72% 42%;
+    --gradient-mid: 265 80% 55%;
+    --gradient-end: 240 45% 8%;
 
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
@@ -85,12 +85,12 @@
 .animated-gradient-bg {
   background: linear-gradient(
     -45deg,
-    hsl(280, 80%, 12%),
-    hsl(240, 10%, 4%),
-    hsl(38, 40%, 8%),
-    hsl(190, 50%, 8%),
-    hsl(240, 10%, 4%),
-    hsl(320, 60%, 10%)
+    hsl(276, 78%, 14%),
+    hsl(252, 50%, 7%),
+    hsl(268, 88%, 22%),
+    hsl(240, 22%, 5%),
+    hsl(286, 82%, 18%),
+    hsl(240, 16%, 4%)
   );
   background-size: 400% 400%;
   animation: gradient-shift 20s ease infinite;
