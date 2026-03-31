@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Play, ArrowDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   const scrollToProjects = () => {
@@ -9,33 +8,62 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Animated immersive background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/70" />
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 animated-gradient-bg opacity-60" />
+        <div className="absolute inset-0 animated-gradient-bg opacity-95" />
+        <div className="absolute inset-0 bg-background/35" />
+
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute rounded-full blur-3xl"
+            style={{
+              width: `${220 + i * 110}px`,
+              height: `${220 + i * 110}px`,
+              top: `${10 + i * 18}%`,
+              left: `${i % 2 === 0 ? 8 + i * 8 : 58 - i * 6}%`,
+              background:
+                i % 2 === 0
+                  ? "radial-gradient(circle, hsl(var(--primary) / 0.35) 0%, hsl(var(--primary) / 0) 70%)"
+                  : "radial-gradient(circle, hsl(var(--accent) / 0.22) 0%, hsl(var(--accent) / 0) 72%)",
+            }}
+            animate={{
+              x: [0, 30, -20, 0],
+              y: [0, -28, 22, 0],
+              scale: [1, 1.12, 0.94, 1],
+            }}
+            transition={{
+              duration: 14 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.35,
+            }}
+          />
+        ))}
       </div>
 
       {/* Floating particles/bokeh */}
-      {[...Array(6)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 rounded-full bg-primary/30"
+          className="absolute rounded-full bg-primary/35"
           style={{
-            top: `${20 + i * 12}%`,
-            left: `${10 + i * 15}%`,
+            width: `${4 + (i % 4) * 2}px`,
+            height: `${4 + (i % 4) * 2}px`,
+            top: `${10 + i * 8}%`,
+            left: `${5 + i * 9}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.5, 1],
+            y: [0, -60, 0],
+            x: [0, 12, -8, 0],
+            opacity: [0.15, 0.65, 0.15],
+            scale: [1, 1.8, 1],
           }}
           transition={{
-            duration: 4 + i,
+            duration: 5 + i,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: i * 0.5,
+            delay: i * 0.25,
           }}
         />
       ))}
@@ -46,9 +74,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-sm md:text-base font-body tracking-[0.3em] uppercase text-primary mb-6"
+          className="text-sm md:text-base font-body tracking-[0.35em] uppercase text-primary mb-6"
         >
-          Professional Video Editor
+          Cinematic Video Editor
         </motion.p>
 
         <motion.h1
@@ -57,9 +85,9 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
         >
-          Crafting Stories
+          Shadows. Rhythm.
           <br />
-          <span className="text-gradient">Frame by Frame</span>
+          <span className="text-gradient">Stories That Pulse.</span>
         </motion.h1>
 
         <motion.p
@@ -68,8 +96,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10"
         >
-          Turning raw footage into cinematic experiences. Weddings, documentaries,
-          reels, and promotions — all edited with passion and precision.
+          I sculpt motion into emotion — high-impact wedding films, reels,
+          documentaries, and brand promotions with bold pacing and premium polish.
         </motion.p>
 
         <motion.div
@@ -80,13 +108,13 @@ const HeroSection = () => {
         >
           <button
             onClick={scrollToProjects}
-            className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-primary-foreground font-semibold text-base hover:opacity-90 transition-all duration-300 glow-primary"
+            className="flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-primary-foreground font-semibold text-base hover:opacity-90 transition-all duration-300 glow-primary hover:scale-105"
           >
             <Play size={18} /> View My Work
           </button>
           <button
             onClick={scrollToProjects}
-            className="flex items-center gap-2 rounded-full glass px-8 py-4 text-foreground font-semibold text-base hover:border-primary/50 transition-all duration-300"
+            className="flex items-center gap-2 rounded-full glass px-8 py-4 text-foreground font-semibold text-base hover:border-primary/50 transition-all duration-300 hover:scale-105"
           >
             Get in Touch
           </button>
