@@ -1,13 +1,51 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Play, ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
+  const [showIntro, setShowIntro] = useState(false);
+
+  useEffect(() => {
+    const introKey = "framecut_intro_seen_v1";
+    const introSeen = window.localStorage.getItem(introKey);
+
+    if (!introSeen) {
+      setShowIntro(true);
+      window.localStorage.setItem(introKey, "true");
+
+      const timer = window.setTimeout(() => setShowIntro(false), 2300);
+      return () => window.clearTimeout(timer);
+    }
+  }, []);
+
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 pointer-events-none"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+          >
+            <motion.h2
+              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-gradient text-3d-cinematic px-6 text-center"
+              initial={{ opacity: 0, rotateX: -70, y: 80, scale: 0.9 }}
+              animate={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
+              exit={{ opacity: 0, rotateX: 28, y: -60, scale: 1.08 }}
+              transition={{ duration: 1.25, ease: [0.2, 0.8, 0.2, 1] }}
+              style={{ transformPerspective: 1200 }}
+            >
+              FRAMECUT
+            </motion.h2>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Animated immersive background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 animated-gradient-bg opacity-95" />
