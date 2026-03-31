@@ -12,6 +12,11 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 animated-gradient-bg opacity-95" />
         <div className="absolute inset-0 bg-background/35" />
+        <motion.div
+          className="absolute inset-0 hero-grid-overlay"
+          animate={{ opacity: [0.2, 0.36, 0.2] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         {[...Array(4)].map((_, i) => (
           <motion.div
