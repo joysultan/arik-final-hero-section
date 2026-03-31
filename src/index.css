@@ -15,7 +15,7 @@
     --popover: 240 8% 8%;
     --popover-foreground: 40 20% 92%;
 
-    --primary: 272 88% 66%;
+    --primary: 268 62% 56%;
     --primary-foreground: 240 10% 4%;
 
     --secondary: 240 6% 14%;
@@ -32,16 +32,16 @@
 
     --border: 240 6% 18%;
     --input: 240 6% 18%;
-    --ring: 272 88% 66%;
+    --ring: 268 62% 56%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
     --glass-bg: 240 8% 10% / 0.6;
     --glass-border: 240 6% 25% / 0.4;
-    --glow-primary: 272 88% 66% / 0.2;
-    --gradient-start: 280 72% 42%;
-    --gradient-mid: 265 80% 55%;
+    --glow-primary: 268 62% 56% / 0.18;
+    --gradient-start: 278 58% 28%;
+    --gradient-mid: 266 64% 36%;
     --gradient-end: 240 45% 8%;
 
     --font-display: 'Playfair Display', Georgia, serif;
@@ -85,11 +85,11 @@
 .animated-gradient-bg {
   background: linear-gradient(
     -45deg,
-    hsl(276, 78%, 14%),
-    hsl(252, 50%, 7%),
-    hsl(268, 88%, 22%),
+    hsl(276, 58%, 10%),
+    hsl(252, 40%, 6%),
+    hsl(268, 70%, 16%),
     hsl(240, 22%, 5%),
-    hsl(286, 82%, 18%),
+    hsl(286, 62%, 14%),
     hsl(240, 16%, 4%)
   );
   background-size: 400% 400%;
@@ -98,8 +98,8 @@
 
 .hero-grid-overlay {
   background-image:
-    linear-gradient(to right, hsl(var(--foreground) / 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--foreground) / 0.12) 1px, transparent 1px);
+    linear-gradient(to right, hsl(0 0% 100% / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(0 0% 100% / 0.3) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
   -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
