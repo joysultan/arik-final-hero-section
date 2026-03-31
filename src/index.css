@@ -96,6 +96,15 @@
   animation: gradient-shift 20s ease infinite;
 }
 
+.hero-grid-overlay {
+  background-image:
+    linear-gradient(to right, hsl(var(--foreground) / 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
+}
+
 /* Glassmorphism */
 .glass {
   background: hsla(var(--glass-bg));
