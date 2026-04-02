@@ -1,0 +1,36 @@
+/*
+ * Animated Gradient Background
+ * 
+ * Usage: Add class "animated-gradient-bg" to any element (e.g. <body> or a wrapper <div>).
+ * This creates a deep purple-black shifting gradient that animates continuously.
+ *
+ * Example:
+ *   <div className="animated-gradient-bg min-h-screen">
+ *     ...your content...
+ *   </div>
+ *
+ * Or apply to <body> in your global CSS:
+ *   body { @apply animated-gradient-bg; }
+ */
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(
+    -45deg,
+    hsl(276, 58%, 10%),
+    hsl(252, 40%, 6%),
+    hsl(268, 70%, 16%),
+    hsl(240, 22%, 5%),
+    hsl(286, 62%, 14%),
+    hsl(240, 16%, 4%)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
